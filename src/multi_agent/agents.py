@@ -17,9 +17,10 @@ warnings.filterwarnings(
 
 #model setup
 def get_llm():
+    api_key = os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY")
     return ChatGoogleGenerativeAI(
         model="gemini-flash-lite-latest",
-        api_key=os.getenv("GOOGLE_API_KEY"),
+        api_key=api_key,
         temperature=0.2,
     )
 

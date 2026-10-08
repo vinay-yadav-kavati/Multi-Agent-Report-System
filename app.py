@@ -21,12 +21,18 @@ st.set_page_config(
 
 # ── Safely Mirror Streamlit Secrets to os.environ ────────────────────────────
 try:
-    for key in ["GOOGLE_API_KEY", "TAVILY_API_KEY"]:
+    for key in ["GOOGLE_API_KEY", "GEMINI_API_KEY", "TAVILY_API_KEY"]:
         if key not in os.environ and key in st.secrets:
             os.environ[key] = str(st.secrets[key])
 except Exception:
     # Catches StreamlitSecretNotFoundError when running locally without secrets.toml
     pass
+
+# Normalize GEMINI_API_KEY and GOOGLE_API_KEY so either works
+if "GEMINI_API_KEY" in os.environ and "GOOGLE_API_KEY" not in os.environ:
+    os.environ["GOOGLE_API_KEY"] = os.environ["GEMINI_API_KEY"]
+elif "GOOGLE_API_KEY" in os.environ and "GEMINI_API_KEY" not in os.environ:
+    os.environ["GEMINI_API_KEY"] = os.environ["GOOGLE_API_KEY"]
 
 # ── Inline CSS ──────────────────────────────────────────────────────────────
 st.markdown("""
