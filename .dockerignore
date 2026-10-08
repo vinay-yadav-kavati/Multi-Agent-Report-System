@@ -1,0 +1,10 @@
+.venv/
+.env
+.git/
+.gitignore
+__pycache__/
+*.py[oc]
+build/
+dist/
+.streamlit/secrets.toml
+uv.lock

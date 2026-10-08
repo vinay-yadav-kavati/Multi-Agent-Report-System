@@ -1,0 +1,36 @@
+# Core LangChain + LCEL/Runnables
+langchain==1.4.3
+langchain-core==1.6.6
+
+# LangGraph - used by LangChain's modern agent runtime
+langgraph
+
+# Google Gemini
+langchain-google-genai==4.4.0
+google-genai
+
+# Tavily Search
+tavily-python
+
+# Web Scraping
+beautifulsoup4
+requests
+lxml
+
+# Environment variables
+python-dotenv
+
+# Data validation
+pydantic
+
+# UI / CLI
+streamlit>=1.30.0
+rich>=13.0.0
+
+# Async / HTTP
+httpx
+aiohttp
+
+# Typing support
+typing-extensions
+
